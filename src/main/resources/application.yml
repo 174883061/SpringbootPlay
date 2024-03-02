@@ -1,0 +1,43 @@
+server:
+  port: 7777
+
+spring:
+  datasource:
+    username: root
+    password: my-secret-pw
+    url: jdbc:mysql://localhost:3306/HelloSpringBoot
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  task:
+    scheduling:
+      pool:
+        size: 10 # 设置定时任务线程池的大小
+jpa:
+  database: mysql
+  show-sql: true
+  properties:
+    hibernate:
+      format_sql: true
+  generate-ddl: true
+  hibernate:
+    ddl-auto: update
+    naming:
+      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  database-platform: org.hibernate.dialect.MySQL5Dialect
+
+logging:
+  level:
+    root: INFO
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: trace
+
+spring-doc:
+  default-produces-media-type: application/json
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
